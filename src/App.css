@@ -1,10 +1,11 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  /*max-width: 1280px;*/
+  padding: 0;
 }
-
+body {
+  margin: 0;
+  padding: 0;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -17,6 +18,104 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.progressbar {
+  margin-top: 10px;
+  border-radius: 5px;
+  height: 15px;
+}
+.line{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  height: 2px;
+  width: 10%;
+  background-color: white;
+  justify-content: center;
+}
+
+.progressbar-fill {
+  height: 100%;
+  border-radius: 5px;
+  background-color: greenyellow;
+  transition: width 0.5s ease-out;
+}
+.NavBarBG {
+  background-color: black;
+}
+.custom-gradient {
+  background: radial-gradient(circle at center, black, #191970);
+}
+.custom-Formgradient {
+  background: radial-gradient(circle at center, black 40%, #191970 95%);
+}
+.custom-gradientOne {
+  background: radial-gradient(circle at top left, #191970 0%, #080824 40%) top
+      left,
+    radial-gradient(circle at top right, #191970 0%, #080824 40%) top right,
+    #080824;
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+}
+
+.section-testimonials{
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(./assets/images/review1.png);
+  background-size: cover;
+  color: #fff;
+  background-attachment: fixed;
+}
+.review{
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+blockquote{
+  padding: 2%;
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top: 40px;
+}
+
+blockquote:before{
+  content: "\201C";
+  font-size: 500%;
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: -3px;
+}
+
+cite{
+  font-size: 90%;
+  margin-top: 25px;
+  display: block;
+}
+
+
+
+cite img{
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 15px;
+  vertical-align: middle;
+  margin-left: 0px;
+}
+
+/*.double-gradient {
+    background-image: linear-gradient(
+      to bottom right,
+      #191970 0%,
+      #000080 50%,
+      #000000 100%
+    ),
+    linear-gradient(to bottom left, #940404 0%, #000080 50%, #000000 100%);
+  background-image: linear-gradient(to bottom right, red 20%, transparent 50%),
+    linear-gradient(to top left, blue 20%, green);
+}*/
 
 @keyframes logo-spin {
   from {
@@ -48,4 +147,3 @@
   /* You might need to adjust the text color for better visibility */
   color: white; /* Or any suitable text color */
 }
-

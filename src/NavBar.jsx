@@ -1,145 +1,147 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+/* eslint-disable no-unused-vars */
+import { Disclosure, Menu } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Fragment, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from "./assets/images/Logo1.jpg";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
+  // State to manage hover
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleMouseEnter = () => {
+    setIsMenuOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsMenuOpen(false);
+  };
+
+  // Reference to the menu button to programmatically click it for toggling
+  const menuButtonRef = useRef(null);
+
   return (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure as="nav" className="bg-white shadow h-20">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-16 justify-between">
-              <div className="flex">
-                <div className="flex flex-shrink-0 items-center">
-                
+          <div className="mx-auto sm:px-6 lg:px-8 align-items">
+            <div className="h-20 flex lg:justify-start justify-between items-center lg:mx-20 px-5 sm:px-10 w-auto sm:w-auto">
+              {/*   <div className="flex w-full">*/}
+              <div className="flex shrink-0 sm:justify-start lg:mr-10">
+                <Link to="/" className="float-left">
                   <img
-                    className="h-8 w-auto"
-                    //src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    className="sm:h-16 h-12 w-auto object-contain"
+                    src={Logo}
                     alt="DirectAutoFinance"
                   />
-                </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <Link
-                    to="/form"
-                    className="inline-flex items-center border-b-2 border-indigo-500 px-3 pt-1 text-sm font-medium text-gray-900"
-                  >
-                    Get Pre-Approved
-                  </Link>
-                  <Disclosure>
-    {({ open }) => (
-      <>
-        <Disclosure.Button
-          className={classNames(
-            'inline-flex items-center border-b-2 border-transparent px-2 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700',
-            { 'border-indigo-500': open }
-          )}
-        >
-          Why Us?
-        </Disclosure.Button>
-        <Disclosure.Panel className="absolute bg-white mt-2 p-2 rounded-md shadow-lg">
-          {/* Add your dropdown content here */}
-          <Link to="/about" className="block py-1 hover:text-indigo-500">
-            About Us
-          </Link>
-          <Link to="/testimonials" className="block py-1 hover:text-indigo-500">
-            Testimonials
-          </Link>
-          {/* Add more dropdown options */}
-        </Disclosure.Panel>
-      </>
-    )}
-  </Disclosure>
-                  <a
-                    href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-3 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                  >
-                    Resources
-                  </a>
-              {   /* <a
-                    href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                  >
-                    Calendar
-      </a>*/}
-                </div>
+                </Link>
               </div>
-           {/*   <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                <button
-                  type="button"
-                  className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+              {/**  </div>     align-items justify-center hidden sm:ml-6 sm:flex*/}
 
-                {/* Profile dropdown 
-                <Menu as="div" className="relative ml-3">
-                  <div>
-                    <Menu.Button className="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-200"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
+              <div className="hidden lg:flex flex-row items-center space-x-8 h-full">
+                {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+
+                <Menu as="div" className="relative items-center h-full">
+                  <Menu.Button className="ml-10 px-5 inline-flex items-center text-md font-medium text-gray-900 h-full">
+                    Why Us
+                    <ChevronDownIcon
+                      className="-mr-1 ml-5 h-5 w-5 text-violet-200 hover:text-violet-100"
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+
+                  <Menu.Items
+                    className="absolute z-10 w-full origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    style={{ top: "100%" }}
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
+                    {/* Dropdown Links */}
+                    <Menu.Item>
+                      {({ active }) => (
+                        <Link
+                          className={`block px-4 py-5 text-center ${
+                            active ? "bg-gray-200 rounded-md" : ""
+                          }`}
+                          to="/about"
+                        >
+                          About
+                        </Link>
+                      )}
+                    </Menu.Item>
+                    {/* Dropdown Links 
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          className={`block px-4 py-5 text-center ${
+                            active ? "bg-gray-100" : ""
+                          }`}
+                          href="/service1"
+                        >
+                          Testimonials
+                        </a>
+                      )}
+                    </Menu.Item>*/}
+                    {/* Repeat for other dropdown links */}
+                  </Menu.Items>
                 </Menu>
-              </div> */}
 
-              <div className="-mr-2 flex items-center sm:hidden">
+                {/* Dropdown Links 
+                <Menu as="div" className="relative px-5 items-center h-full">
+                  <Menu.Button className="inline-flex items-center text-md font-medium text-gray-900 h-full">
+                  Testimonials
+                    <ChevronDownIcon
+                      className="-mr-1 ml-5 h-5 w-5 text-violet-200 hover:text-violet-100"
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+
+                  <Menu.Items
+                    className="absolute z-10 w-full origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    style={{ top: "100%" }}
+                  >
+                    {/* Dropdown Links 
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          className={`block px-4 py-5 text-center ${
+                            active ? "bg-" : ""
+                          }`}
+                          href="/about"
+                        >
+                          About
+                        </a>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          className={`block px-4 py-5 text-center ${
+                            active ? "bg-gray-100" : ""
+                          }`}
+                          href="/service1"
+                        >
+                          Testimonials
+                        </a>
+                      )}
+                    </Menu.Item>
+                    
+                  </Menu.Items>
+                </Menu>*/}
+              </div>
+
+              <Link
+                to="/form"
+                className="hidden lg:block bg-[#3030a1] flex ml-auto align-item items-center text-center w-1/6 border-b-2 border-transparent rounded px-0 py-3 text-sm font-medium text-white hover:bg-[#191970] hover:text-gray-100 "
+              >
+                <p className="text-center">Get Pre-Approved</p>
+              </Link>
+
+              <div className="float-right flex justify-end mr-1 sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <Disclosure.Button className="relative inline-flex items-center justify-end rounded-md px-2 mr-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -152,16 +154,18 @@ export default function Example() {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 pb-3 pt-2">
+          <Disclosure.Panel className="sm:hidden bg-black z-30">
+            <div className="bg-black z-20 space-y-1 pb-3 pt-2">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               <Disclosure.Button
                 as="a"
-                href="#"
-                className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
+                href="/about"
+                className="block bg-black border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-white"
               >
-                Dashboard
+                About
               </Disclosure.Button>
+
+              {/* Dropdown Links 
               <Disclosure.Button
                 as="a"
                 href="#"
@@ -182,59 +186,11 @@ export default function Example() {
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
               >
                 Calendar
-              </Disclosure.Button>
+              </Disclosure.Button>*/}
             </div>
-
-          {/*  <div className="border-t border-gray-200 pb-3 pt-4">
-              <div className="flex items-center px-4">
-                <div className="flex-shrink-0">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="ml-3">
-                  <div className="text-base font-medium text-gray-800">Tom Cook</div>
-                  <div className="text-sm font-medium text-gray-500">tom@example.com</div>
-                </div>
-                <button
-                  type="button"
-                  className="relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="mt-3 space-y-1">
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                >
-                  Your Profile
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                >
-                  Settings
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                >
-                  Sign out
-                </Disclosure.Button>
-              </div>
-            </div>*/}
-
           </Disclosure.Panel>
         </>
       )}
-                  </Disclosure>
-  )
+    </Disclosure>
+  );
 }
