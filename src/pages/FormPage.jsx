@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 //import React, { useState } from "react";
 import NavBar from "../NavBar.jsx";
-import Footer from "../component/Footer.jsx";
+
 import FooterForm from "../component/FooterForm.jsx";
 
 function FormPage({

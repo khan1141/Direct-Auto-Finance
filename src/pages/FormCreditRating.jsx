@@ -51,7 +51,7 @@ function FormCreditRating({
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
-          navigate("/");
+          navigate("/success");
           // Handle success here (e.g., navigate to a success page or show a message)
         },
         (error) => {

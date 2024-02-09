@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import App from "./App.jsx";
-import AppTester from "./AppTester.jsx";
+
 import MultiStepForm from "./pages/MultiStepForm.jsx";
-import FormSubmitted from "./pages/formSubmitted.jsx";
-import Testbackground from "./Testbackground.jsx";
+import FormSubmitted from "./pages/FormSubmitted.jsx";
+
 import About from "./pages/About.jsx";
 import ContantUs from "./pages/ContactUs.jsx";
 
