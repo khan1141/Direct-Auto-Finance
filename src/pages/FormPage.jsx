@@ -28,7 +28,7 @@ function FormPage({
       <NavBar />
       <div className="custom-Formgradient  h-max flex flex-col items-center px-0 sm:px-5">
         <div className="flex flex-col items-center px-4 w-full sm:w-full md:w-2/5 lg:w-2/5">
-          <p className="text-white mt-40">3 Minutes to Finish!</p>
+          <p className="text-white mt-10 sm:mt-40">3 Minutes to Finish!</p>
           <div className="progressbar bg-gray-700 flex flex-col h-full mt-2 mb-5 mx-auto w-full  lg:w-3/5">
             <div
               style={{ width: `${currentStep * n}%` }}
@@ -47,7 +47,7 @@ function FormPage({
               <h1 className="text-white text-4xl mb-1 mt-5">
                 Get Pre-Approved for the Car You Want at a Price You Can Afford
               </h1>
-              <h2 className="text-white text-center text-2xl mt-20 mb-6">
+              <h2 className="text-white text-center text-2xl mt-5 sm:mt-20 mb-6">
                 What Vehicle are you looking for?
               </h2>
             </div>

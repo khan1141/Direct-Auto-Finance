@@ -68,7 +68,7 @@ function FormCreditRating({
       <NavBar />
       <div className="custom-Formgradient sm:h-screen sm:h-full h-screen flex flex-col items-center px-0 sm:px-5">
         <div className="flex flex-col items-center px-4 w-full sm:w-full md:w-2/5 lg:w-2/5">
-          <p className="text-white mt-40">1 Minutes to Finish!</p>
+          <p className="text-white mt-10 sm:mt-40">1 Minutes to Finish!</p>
           <div className="progressbar bg-gray-700 flex flex-col h-full mt-2 mx-auto w-full lg:w-3/5">
           <div
             style={{ width: `${currentStep * n}%` }}
@@ -84,7 +84,7 @@ function FormCreditRating({
             transition={{ duration: 0.9 }}
           >
             <div className="flex flex-col justify-center items-center">
-              <h2 className="text-white text-center text-2xl mt-20 mb-6">
+              <h2 className="text-white text-center text-2xl mt-5 sm:mt-20 mb-6">
               What is your estimated credit rating?
               </h2>
             </div>
@@ -150,7 +150,7 @@ function FormCreditRating({
               </div>
             </div>
 
-            <div className="flex items-center justify-center mt-5 space-x-2 w-full sm:w-full lg:w-3/5">
+            <div className="flex items-center justify-center mt-5 mb-10 py-3 space-x-2 w-full sm:w-full lg:w-3/5">
               <button
                 type="button" // Change type to button
                 onClick={goToPrev} // Use handleSubmit on button click
