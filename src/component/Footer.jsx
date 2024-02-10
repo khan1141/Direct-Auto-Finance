@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -99,8 +100,6 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-
-            
             </div>
           </div>
 
@@ -110,13 +109,13 @@ const Footer = () => {
 
               <ul className="mt-6 space-y-1">
                 <li>
-                  <a
+                  <Link
                     className="text-gray-200 transition hover:text-gray-700/75"
-                    href="/about"
+                    to="/about"
                   >
                     {" "}
                     About{" "}
-                  </a>
+                  </Link>
                 </li>
 
                 {/**   Live Chat{" "}
@@ -151,12 +150,12 @@ const Footer = () => {
                 </li>*/}
               </ul>
             </div>
-<br/>
+            <br />
             <div>
               <strong className="font-medium text-gray-300"> Support </strong>
 
               <ul className="mt-6 space-y-1">
-              {/**   Live Chat{" "}
+                {/**   Live Chat{" "}
                 <li>
                   <a
                     className="text-gray-200 transition hover:text-gray-700/75"
@@ -168,13 +167,13 @@ const Footer = () => {
                 </li>*/}
 
                 <li>
-                  <a
+                  <Link
                     className="text-gray-200 transition hover:text-gray-700/75"
-                    href="/contact"
+                    to="/contact"
                   >
                     {" "}
                     Contact Us{" "}
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
